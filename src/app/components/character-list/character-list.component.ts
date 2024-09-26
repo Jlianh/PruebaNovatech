@@ -6,7 +6,20 @@ import { MarvelService } from '../../services/marvel.service';
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css']
 })
-export class CharacterListComponent  {
+export class CharacterListComponent implements OnInit  {
+
+  characters: any[] = []
   
+  constructor(private marvelService: MarvelService){
+
+  }
+
+  ngOnInit(): void {
+    this.marvelService.getCharacters().subscribe(
+      (data)=>{
+        this.characters = data.data.results;
+      }
+    )
+  }
 }
 

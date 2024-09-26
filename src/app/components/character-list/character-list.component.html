@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <div *ngFor="let character of characters" class="w-25 h-25 rounded-3">
+                <img [src]="character.thumbnail.path + '.'+ character.thumbnail.extension"  alt="character-image" class="w-auto h-auto">
+                <h1>{{character.name}}</h1>
+                <a [href]="character.thumbnail.path" >
+                    <button type="button" class="btm btn-primary"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
